@@ -24,8 +24,6 @@ const Home = (): JSX.Element => {
     getEpisodes();
   }, []);
 
-  console.log(currentShow);
-
   return (
     <>
       <Header />
