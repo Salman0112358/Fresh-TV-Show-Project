@@ -20,7 +20,8 @@ const Thumbnail = ({
     <>
       <Wrapper>
         <EpisodeDetails>
-          {name} {season} {number}
+          S{padNumberToTwoDigits(season)}E{padNumberToTwoDigits(number)} -{" "}
+          {name}
         </EpisodeDetails>
         <Image src={image} alt="episode-img"></Image>
         <EpisodeDescription>{summary}</EpisodeDescription>
@@ -29,3 +30,19 @@ const Thumbnail = ({
   );
 };
 export default Thumbnail;
+function padNumberToTwoDigits(inputNumber: number): string {
+  if (inputNumber < 10) {
+    return `0${inputNumber}`;
+  } else if (inputNumber >= 10) {
+    return `${inputNumber}`;
+  } else {
+    return "null";
+  }
+}
+
+/*
+If number < 10 then
+  seasonNumber = 0 + number
+ else if number >= 10 then
+  seasonNumber = number  
+*/
