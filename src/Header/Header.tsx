@@ -12,6 +12,12 @@ const Header = (): JSX.Element => {
         <Content>
           <LogoImg src={MainLogo} alt="main-logo" />
           <APIImg src={APILogo} alt="api-logo" />
+          <p>
+            Source:{" "}
+            <a href="https://www.tvmaze.com" target="_blank" rel="noreferrer">
+              <b>tvmaze</b>
+            </a>
+          </p>
         </Content>
       </Wrapper>
     </>
