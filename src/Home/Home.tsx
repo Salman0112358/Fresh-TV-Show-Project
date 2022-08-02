@@ -1,22 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
+// importing API
 // import components
 import Header from "../Header/Header";
 import Grid from "../Grid/Grid";
 import Thumbnail from "../Thumbnail/Thumbnail";
 
 //import episodes
-import episodes from "../episodes.json";
-
+//import episodes from "../episodes.json";
 //import inteface
 import { IEpisode } from "../types";
 
 const Home = (): JSX.Element => {
+  const [currentShow, setCurrentShow] = useState<IEpisode[]>([]);
+
+  useEffect(() => {
+    const getEpisodes = async () => {
+      const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
+
+      const jsonBody: IEpisode[] = await response.json();
+      setCurrentShow(jsonBody);
+    };
+    getEpisodes();
+  }, []);
+
+  console.log(currentShow);
+
   return (
     <>
       <Header />
-      <Grid header={`Showing ${episodes.length} Episodes`}>
-        {episodes.map((item: IEpisode) => (
+      <Grid header={`Showing ${currentShow.length} Episodes`}>
+        {currentShow.map((item: IEpisode) => (
           <Thumbnail
             name={item.name}
             season={item.season}
