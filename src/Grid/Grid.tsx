@@ -1,5 +1,4 @@
 import React from 'react'
-import { JsxEmit } from 'typescript'
 
 import {Wrapper, Content} from './Grid.styles'
 

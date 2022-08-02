@@ -3,6 +3,7 @@ import React from 'react';
 // import components
 import Header from '../Header/Header';
 import Grid from '../Grid/Grid'
+import Thumbnail from '../Thumbnail/Thumbnail';
 
 //import episodes
 import episodes from '../episodes.json'
@@ -16,7 +17,14 @@ const Home = () : JSX.Element => {
         <>
         <Header/>
         <Grid header = "showing all episodes">
-            {episodes.map((item : IEpisode) => <div key = {item.id}>{item.name}</div>)}
+            {episodes.map((item : IEpisode) => <Thumbnail
+            name = {item.name}
+            season = {item.season}
+            number = {item.number}
+            image = {item.image.medium}
+            summary = {item.summary}
+            key = {item.id}
+            />)}
         </Grid>
         </>
     )

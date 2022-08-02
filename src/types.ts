@@ -23,3 +23,11 @@ export interface IEpisode {
     _links: { self: { href: string } };
   }
   
+
+  export interface ThumbnailProps {
+    name: string;
+    season: number;
+    number: number;
+    image: string;
+    summary: string
+}
