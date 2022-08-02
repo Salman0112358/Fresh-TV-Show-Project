@@ -15,7 +15,7 @@ const Home = (): JSX.Element => {
   return (
     <>
       <Header />
-      <Grid header="showing all episodes">
+      <Grid header={`Showing ${episodes.length} Episodes`}>
         {episodes.map((item: IEpisode) => (
           <Thumbnail
             name={item.name}
