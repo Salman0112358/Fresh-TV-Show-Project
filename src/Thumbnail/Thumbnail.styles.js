@@ -11,6 +11,7 @@ export const EpisodeDetails = styled.p`
   margin: 0 auto;
   text-align: center;
   padding: 20px 0;
+  color: white;
 `;
 
 export const EpisodeDescription = styled.p`
@@ -18,6 +19,7 @@ export const EpisodeDescription = styled.p`
   text-align: center;
   padding: 20px 0;
   min-height: 200px;
+  color: white;
 `;
 
 export const Image = styled.img`
