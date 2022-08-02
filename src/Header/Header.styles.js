@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   background: var(--medGrey);
@@ -17,7 +17,6 @@ export const Content = styled.div`
   padding: 20px 0;
   margin: 0 auto;
 `;
-
 
 export const LogoImg = styled.img`
   width: 200px;
