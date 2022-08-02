@@ -31,3 +31,9 @@ export const APIImg = styled.img`
     width: 150px;
   }
 `;
+
+export const APIsource = styled.p`
+  display: flex;
+  justify-content: flex-end;
+  margin: auto 4rem auto auto;
+`;
