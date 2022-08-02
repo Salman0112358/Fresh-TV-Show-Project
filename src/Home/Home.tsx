@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-
 // importing API
+
 // import components
 import Header from "../Header/Header";
 import Grid from "../Grid/Grid";
 import Thumbnail from "../Thumbnail/Thumbnail";
-
 //import episodes
 //import episodes from "../episodes.json";
 //import inteface
 import { IEpisode } from "../types";
 
 const Home = (): JSX.Element => {
+
   const [currentShow, setCurrentShow] = useState<IEpisode[]>([]);
 
   useEffect(() => {
@@ -43,3 +43,4 @@ const Home = (): JSX.Element => {
   );
 };
 export default Home;
+

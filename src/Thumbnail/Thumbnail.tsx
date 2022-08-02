@@ -23,7 +23,7 @@ const Thumbnail = ({
           S{padNumberToTwoDigits(season)}E{padNumberToTwoDigits(number)} -{" "}
           {name}
         </EpisodeDetails>
-        <Image src={image} alt="episode-img"></Image>
+        <Image  src={image} alt="episode-img" ></Image>
         <EpisodeDescription>{summary}</EpisodeDescription>
       </Wrapper>
     </>
