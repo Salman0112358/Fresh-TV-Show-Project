@@ -74,7 +74,11 @@ const exampleArrayB = [
 ];
 
 test("takes an input array of Episode information and returns a filtered array that has only includes episodes matching a specified search term", () => {
-  expect(SearchFilterFunction(episodes, "jon snow a")).toBe(exampleArrayA);
-  expect(SearchFilterFunction(episodes, "jon snow an")).toBe(exampleArrayB);
-  expect(SearchFilterFunction(episodes, "")).toBe([]);
+  expect(SearchFilterFunction(episodes, "jon snow a")).toStrictEqual(
+    exampleArrayA
+  );
+  expect(SearchFilterFunction(episodes, "jon snow an")).toStrictEqual(
+    exampleArrayB
+  );
+  expect(SearchFilterFunction(episodes, "")).toStrictEqual(episodes);
 });
