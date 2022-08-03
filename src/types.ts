@@ -1,7 +1,6 @@
 export interface GridProps {
   header: string;
   children: any;
-
 }
 
 export interface IEpisode {
@@ -29,18 +28,14 @@ export interface ThumbnailProps {
   number: number;
   image: string;
   summary: string;
-  
 }
-
 
 export type EpisodeSearchProps = {
-
-  episodeSearchTerm: string
-  episodesArray : IEpisode[]
-}
+  episodeSearchTerm: string;
+  episodesArray: IEpisode[];
+};
 
 export type SearchTermProps = {
-
-  episodeSearchTerm : string;
-  setEpisodeSearchTerm : React.Dispatch<React.SetStateAction<string>>;
-}
+  episodeSearchTerm: string;
+  setEpisodeSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+};

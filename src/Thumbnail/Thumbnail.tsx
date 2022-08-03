@@ -9,11 +9,9 @@ import React from "react";
 // import interface
 import { ThumbnailProps } from "../types";
 
-
 // function utility imports
 import padNumberToTwoDigits from "../utils/padNumberToTwoDigits";
 import removeHtmlTag from "../utils/removeHtmlTag";
-
 
 const Thumbnail = ({
   name,
@@ -36,5 +34,3 @@ const Thumbnail = ({
   );
 };
 export default Thumbnail;
-
-
