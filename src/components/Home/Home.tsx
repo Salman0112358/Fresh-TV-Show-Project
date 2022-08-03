@@ -6,7 +6,7 @@ import Header from "../Header/Header";
 import Grid from "../Grid/Grid";
 import Thumbnail from "../Thumbnail/Thumbnail";
 import SearchBar from "../SearchBar/SearchBar";
-import { DropDownEpisodeMenu } from "../DropDownEpisodeMenu/DropDownEpisodeMenu";
+//import { DropDownEpisodeMenu } from "../DropDownEpisodeMenu/DropDownEpisodeMenu";
 //import episodes
 //import episodes from "../episodes.json";
 
