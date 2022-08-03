@@ -3,7 +3,7 @@ import React from "react";
 import { Wrapper, Content } from "./Grid.styles";
 
 //getting interfaces
-import { GridProps } from "../types";
+import { GridProps } from "../../types";
 
 const Grid = ({ header, children }: GridProps): JSX.Element => {
   return (

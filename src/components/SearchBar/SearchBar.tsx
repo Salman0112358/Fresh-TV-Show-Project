@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SearchTermProps } from "../types";
+import { SearchTermProps } from "../../types";
 
 function SearchBar({
   episodeSearchTerm,

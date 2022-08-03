@@ -1,7 +1,7 @@
 import React from "react";
 
-import MainLogo from "../images/main-logo.png";
-import APILogo from "../images/API-logo.png";
+import MainLogo from "../../images/main-logo.png";
+import APILogo from "../../images/API-logo.png";
 
 import { Wrapper, Content, LogoImg, APIImg, APIsource } from "./Header.styles";
 

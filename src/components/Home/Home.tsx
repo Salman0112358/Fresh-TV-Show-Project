@@ -10,10 +10,10 @@ import SearchBar from "../SearchBar/SearchBar";
 //import episodes from "../episodes.json";
 
 //import inteface
-import { IEpisode } from "../types";
+import { IEpisode } from "../../types";
 
 //importing function
-import SearchFilterFunction from "../utils/searchMatchingFunction";
+import SearchFilterFunction from "../../utils/searchMatchingFunction";
 //////////////////////////
 
 const Home = (): JSX.Element => {
