@@ -6,6 +6,7 @@ import Header from "../Header/Header";
 import Grid from "../Grid/Grid";
 import Thumbnail from "../Thumbnail/Thumbnail";
 import SearchBar from "../SearchBar/SearchBar";
+import { DropDownEpisodeMenu } from "../DropDownEpisodeMenu/DropDownEpisodeMenu";
 //import episodes
 //import episodes from "../episodes.json";
 
@@ -45,6 +46,15 @@ const Home = (): JSX.Element => {
         episodeSearchTerm={episodeSearchTerm}
         setEpisodeSearchTerm={setEpisodeSearchTerm}
       />
+      {/* {searchFilteredEpisodes.map((item : IEpisode) => (
+          <DropDownEpisodeMenu
+            name = {item.name}
+            season = {item.season}
+            number = {item.number}
+            key = {item.id}
+          />
+        ) )}
+     */}
       <Grid
         header={`Showing ${searchFilteredEpisodes.length}/${totalEpisodeCounter} Episodes`}
       >
