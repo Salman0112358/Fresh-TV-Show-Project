@@ -21,7 +21,7 @@ export interface ThumbnailProps {
   name: string;
   season: number;
   number: number;
-  image: string;
+  image?: string;
   summary: string;
 }
 

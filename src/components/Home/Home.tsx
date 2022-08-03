@@ -15,6 +15,7 @@ import { IEpisode } from "../../types";
 
 //importing function
 import SearchFilterFunction from "../../utils/searchMatchingFunction";
+import { emptyImageChecker } from "../../utils/emptyImageChecker";
 //////////////////////////
 
 const Home = (): JSX.Element => {
@@ -29,9 +30,11 @@ const Home = (): JSX.Element => {
     episodeSearchTerm
   );
 
+  //console.log(emptyImageChecker(null))
+
   useEffect(() => {
     const getEpisodes = async () => {
-      const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
+      const response = await fetch("https://api.tvmaze.com/shows/83/episodes");
 
       const jsonBody: IEpisode[] = await response.json();
       setCurrentShow(jsonBody);
@@ -59,11 +62,12 @@ const Home = (): JSX.Element => {
         header={`Showing ${searchFilteredEpisodes.length}/${totalEpisodeCounter} Episodes`}
       >
         {searchFilteredEpisodes.map((item: IEpisode) => (
+          
           <Thumbnail
             name={item.name}
             season={item.season}
             number={item.number}
-            image={item.image.medium}
+            image={emptyImageChecker(item)}
             summary={item.summary}
             key={item.id}
           />

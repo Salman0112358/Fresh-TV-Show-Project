@@ -1,8 +1,24 @@
-export default function removeHtmlTag(inputString: string): string {
-  inputString = inputString.replace("<p>", ""); // opening html tag removal
-  inputString = inputString.replace("</p>", ""); // closing html tag removal
 
-  return inputString;
+
+const regex = /(<([^>]+)>)/ig
+
+
+export default function removeHtmlTag(inputString: string): string {
+
+  if (typeof inputString == 'string'){
+
+    //inputString = inputString.replace("<p>", ""); // opening html tag removal
+    //inputString = inputString.replace("</p>", ""); // closing html tag removal
+
+     const newString = inputString.replace(regex,"")
+
+  return newString;
+  
+  } else {
+    return  "No summary available"
+  }
+
+  
 }
 // function
 /*
