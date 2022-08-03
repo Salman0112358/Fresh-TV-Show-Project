@@ -11,7 +11,6 @@ import Thumbnail from "../Thumbnail/Thumbnail";
 import { IEpisode } from "../types";
 
 const Home = (): JSX.Element => {
-
   const [currentShow, setCurrentShow] = useState<IEpisode[]>([]);
 
   useEffect(() => {
@@ -43,4 +42,3 @@ const Home = (): JSX.Element => {
   );
 };
 export default Home;
-
