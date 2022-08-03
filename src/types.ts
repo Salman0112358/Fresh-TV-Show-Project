@@ -1,8 +1,3 @@
-export interface GridProps {
-  header: string;
-  children: any;
-}
-
 export interface IEpisode {
   id: number;
   url: string;
@@ -39,3 +34,8 @@ export type SearchTermProps = {
   episodeSearchTerm: string;
   setEpisodeSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 };
+
+export interface GridProps {
+  header: string;
+  children: any;
+}
