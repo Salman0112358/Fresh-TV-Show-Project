@@ -3,17 +3,11 @@ import React from "react";
 import { MenuDrop } from "./DropDownEpisodeMenu.styles";
 
 type DropDownMenuProps = {
-  children: JSX.Element;
-  name: string;
-  season: number;
-  number: number;
+  children: any;
 };
 
 export const DropDownEpisodeMenu = ({
   children,
-  name,
-  season,
-  number,
 }: DropDownMenuProps): JSX.Element => {
   return (
     <MenuDrop>

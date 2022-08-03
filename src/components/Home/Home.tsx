@@ -6,7 +6,7 @@ import Header from "../Header/Header";
 import Grid from "../Grid/Grid";
 import Thumbnail from "../Thumbnail/Thumbnail";
 import SearchBar from "../SearchBar/SearchBar";
-//import { DropDownEpisodeMenu } from "../DropDownEpisodeMenu/DropDownEpisodeMenu";
+import { DropDownEpisodeMenu } from "../DropDownEpisodeMenu/DropDownEpisodeMenu";
 //import episodes
 //import episodes from "../episodes.json";
 
@@ -49,6 +49,19 @@ const Home = (): JSX.Element => {
         episodeSearchTerm={episodeSearchTerm}
         setEpisodeSearchTerm={setEpisodeSearchTerm}
       />
+      {/* <DropDownEpisodeMenu>
+        {searchFilteredEpisodes.map((item: IEpisode) => (
+            <a
+            key = {item.id}
+            href= {item.url}
+            target= "_blank"
+            onClick= {() => setEpisodeSearchTerm(item.name)}
+            rel = "noreferrer">
+            {item.name}
+            </a>
+          ))
+        }
+      </DropDownEpisodeMenu> */}
       {/* {searchFilteredEpisodes.map((item : IEpisode) => (
           <DropDownEpisodeMenu
             name = {item.name}
@@ -62,7 +75,6 @@ const Home = (): JSX.Element => {
         header={`Showing ${searchFilteredEpisodes.length}/${totalEpisodeCounter} Episodes`}
       >
         {searchFilteredEpisodes.map((item: IEpisode) => (
-          
           <Thumbnail
             name={item.name}
             season={item.season}

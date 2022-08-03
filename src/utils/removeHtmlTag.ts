@@ -1,24 +1,16 @@
-
-
-const regex = /(<([^>]+)>)/ig
-
+const regex = /(<([^>]+)>)/gi;
 
 export default function removeHtmlTag(inputString: string): string {
-
-  if (typeof inputString == 'string'){
-
+  if (typeof inputString == "string") {
     //inputString = inputString.replace("<p>", ""); // opening html tag removal
     //inputString = inputString.replace("</p>", ""); // closing html tag removal
 
-     const newString = inputString.replace(regex,"")
+    const newString = inputString.replace(regex, "");
 
-  return newString;
-  
+    return newString;
   } else {
-    return  "No summary available"
+    return "No summary available";
   }
-
-  
 }
 // function
 /*

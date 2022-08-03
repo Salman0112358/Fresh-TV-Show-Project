@@ -5,10 +5,14 @@ export default function SearchFilterFunction(
   episodeSearchTerm: string
 ): IEpisode[] {
   const searchFilteredEpisodes = currentShow.filter((item) => {
-    return (
-      item.name.toLowerCase().includes(episodeSearchTerm.toLowerCase()) ||
-      item.summary.toLowerCase().includes(episodeSearchTerm.toLowerCase())
-    );
+    if (item.name && item.summary) {
+      return (
+        item.name.toLowerCase().includes(episodeSearchTerm.toLowerCase()) ||
+        item.summary.toLowerCase().includes(episodeSearchTerm.toLowerCase())
+      );
+    } else if (item.name) {
+      return item.name.toLowerCase().includes(episodeSearchTerm.toLowerCase());
+    }
   });
 
   return searchFilteredEpisodes;
