@@ -5,10 +5,10 @@ const defaultImage =
 
 const emptyImageChecker = (item: IEpisode): string => {
   if (item.image && item.image.medium) {
-    console.log("image.medium has been found with a valid string", item.id);
+    //console.log("image.medium has been found with a valid string", item.id);
     return item.image.medium;
   } else {
-    console.log("This image source is null :( ", item.id);
+    //console.log("This image source is null :( ", item.id);
     return defaultImage;
   }
 };

@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
-  justify-content: flex-start;
+  align-items: center;
+  /* justify-content: flex-start; */
   max-width: var(--maxWidth);
   padding: 30px;
   margin: 0 auto;
@@ -46,13 +46,13 @@ export const MenuDrop = styled.div`
   .dropdown-content li {
     color: black;
     padding: 12px 16px;
-    text-decoration: none;
+    /* text-decoration: none; */
     display: block;
   }
 
   /* Change color of dropdown links on hover */
   .dropdown-content li:hover {
-    background-color: #f1f1f1;
+    background-color: darkorange;
   }
 
   /* Show the dropdown menu on hover */
@@ -61,7 +61,9 @@ export const MenuDrop = styled.div`
   }
 
   /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {
+  .dropbtn:hover {
     background-color: #3e8e41;
   }
+
+
 `;

@@ -25,6 +25,7 @@ export interface ThumbnailProps {
   number: number;
   image?: string;
   summary: string;
+  url : string
 }
 
 export type EpisodeSearchProps = {

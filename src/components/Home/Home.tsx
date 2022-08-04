@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // importing API
-
+import { getShowsList } from "../../API";
 // import components
 import Header from "../Header/Header";
 import Grid from "../Grid/Grid";
@@ -31,11 +31,11 @@ const Home = (): JSX.Element => {
     episodeSearchTerm
   );
 
-  //console.log(emptyImageChecker(null))
+  getShowsList("Friends")
 
   useEffect(() => {
     const getEpisodes = async () => {
-      const response = await fetch("https://api.tvmaze.com/shows/83/episodes");
+      const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
 
       const jsonBody: IEpisode[] = await response.json();
       setCurrentShow(jsonBody);
@@ -50,14 +50,6 @@ const Home = (): JSX.Element => {
         episodeSearchTerm={episodeSearchTerm}
         setEpisodeSearchTerm={setEpisodeSearchTerm}
       />
-      <DropDownEpisodeMenu>
-        {searchFilteredEpisodes.map((item: IEpisode) => (
-          <li key={item.id} onClick={() => setEpisodeSearchTerm(item.name)}>
-            S{padNumberToTwoDigits(item.season)}E
-            {padNumberToTwoDigits(item.number)} - {item.name}
-          </li>
-        ))}
-      </DropDownEpisodeMenu>
       <Grid
         header={`Showing ${searchFilteredEpisodes.length}/${totalEpisodeCounter} Episodes`}
       >
@@ -68,6 +60,7 @@ const Home = (): JSX.Element => {
             number={item.number}
             image={emptyImageChecker(item)}
             summary={item.summary}
+            url = {item.url}
             key={item.id}
           />
         ))}
