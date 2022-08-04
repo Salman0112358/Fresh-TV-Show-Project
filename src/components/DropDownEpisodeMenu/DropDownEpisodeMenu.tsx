@@ -13,7 +13,7 @@ export const DropDownEpisodeMenu = ({
     <Wrapper>
       <MenuDrop>
         <div className="dropdown">
-          <button className="dropbtn">ShowEpisodesList</button>
+          <button className="dropbtn">Display List of Episodes</button>
           <div className="dropdown-content">
             <ul>{children}</ul>
           </div>

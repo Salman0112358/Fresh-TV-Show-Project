@@ -46,4 +46,13 @@ export const GlobalStyle = createGlobalStyle`
 
     }
 
+    .parent-buttons { 
+
+        margin: 1rem;
+        padding: 2rem 2rem;
+        text-align: center;
+        margin-left: -12%
+        ;
+    }
+
 `;

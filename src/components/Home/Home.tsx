@@ -1,28 +1,28 @@
+// React Lib import
 import React, { useState, useEffect } from "react";
-// importing API
-import { getAllShows } from "../../API";
 // import components
 import Header from "../Header/Header";
 import Grid from "../Grid/Grid";
 import Thumbnail from "../Thumbnail/Thumbnail";
 import SearchBar from "../SearchBar/SearchBar";
 import { DropDownEpisodeMenu } from "../DropDownEpisodeMenu/DropDownEpisodeMenu";
-//import episodes
-//import episodes from "../episodes.json";
-
+import { DropDownShowMenu } from "../DropDownShowMenu/DropDownShowMenu";
 //import inteface
 import { IEpisode } from "../../types";
-
-//importing function
+import { IShow } from "../../types";
+import { showNameProp } from "../../types";
+//import utility function
 import SearchFilterFunction from "../../utils/searchMatchingFunction";
 import { emptyImageChecker } from "../../utils/emptyImageChecker";
 import padNumberToTwoDigits from "../../utils/padNumberToTwoDigits";
+import sortArrayAlphabetically from "../../utils/sortArrayAlphabetically";
 //////////////////////////
 
 const Home = (): JSX.Element => {
   // react managed states
   const [currentShow, setCurrentShow] = useState<IEpisode[]>([]);
   const [episodeSearchTerm, setEpisodeSearchTerm] = useState("");
+  const [currentShowListing, setCurrentShowListing] = useState<IShow[]>([]);
 
   const totalEpisodeCounter: number = currentShow.length;
 
@@ -31,18 +31,29 @@ const Home = (): JSX.Element => {
     episodeSearchTerm
   );
 
-  getAllShows();
+  useEffect(() => {
+    const getshowListing = async () => {
+      const response = await fetch("https://api.tvmaze.com/shows");
 
+      const jsonBody: IShow[] = await response.json();
+      setCurrentShowListing(jsonBody);
+      //console.log("fetching completed");
+    };
+    getshowListing();
+  }, []);
+  /////////////////////////////////////////////////////////////
   useEffect(() => {
     const getEpisodes = async () => {
-      const response = await fetch("https://api.tvmaze.com/shows/83/episodes");
+      const response = await fetch("https://api.tvmaze.com/shows/1/episodes");
 
       const jsonBody: IEpisode[] = await response.json();
       setCurrentShow(jsonBody);
-      console.log("fetching completed");
     };
     getEpisodes();
-  }, []);
+  }, [currentShowListing]);
+  ///////////////////////////////////////////////
+
+  //console.log(showEpisodesForSelectedShow(84))
 
   return (
     <>
@@ -51,16 +62,40 @@ const Home = (): JSX.Element => {
         episodeSearchTerm={episodeSearchTerm}
         setEpisodeSearchTerm={setEpisodeSearchTerm}
       />
-      <DropDownEpisodeMenu>
-        {searchFilteredEpisodes.map((item: IEpisode) => (
-          <li onClick={() => setEpisodeSearchTerm(item.name)} key={item.id}>
-            S{padNumberToTwoDigits(item.season)}E
-            {padNumberToTwoDigits(item.number)} - {item.name}
-          </li>
-        ))}
-      </DropDownEpisodeMenu>
+      <div className="parent-buttons">
+        <DropDownEpisodeMenu>
+          {searchFilteredEpisodes.map((item: IEpisode) => (
+            <a key={item.id} href="#top">
+              <li onClick={() => setEpisodeSearchTerm(item.name)}>
+                S{padNumberToTwoDigits(item.season)}E
+                {padNumberToTwoDigits(item.number)} - {item.name}
+              </li>
+            </a>
+          ))}
+        </DropDownEpisodeMenu>
+        <DropDownShowMenu>
+          {/* console.log(`https://api.tvmaze.com/shows/${item.id}/episodes`) */}
+          {sortArrayAlphabetically(currentShowListing).map(
+            (item: IShow | showNameProp) => (
+              <a key={item.id} href="#top">
+                <li
+                  onClick={async () => {
+                    const response = await fetch(
+                      `https://api.tvmaze.com/shows/${item.id}/episodes`
+                    );
+                    const jsonBody: IEpisode[] = await response.json();
+                    setCurrentShow(jsonBody);
+                  }}
+                >
+                  {item.name}
+                </li>
+              </a>
+            )
+          )}
+        </DropDownShowMenu>
+      </div>
       <Grid
-        header={`Showing ${searchFilteredEpisodes.length}/${totalEpisodeCounter} Episodes`}
+        header={`Showing ${searchFilteredEpisodes.length}/${totalEpisodeCounter} Episodes `}
       >
         {searchFilteredEpisodes.map((item: IEpisode) => (
           <Thumbnail

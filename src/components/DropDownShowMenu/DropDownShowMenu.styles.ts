@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   /* justify-content: flex-start; */
   /* max-width: var(--maxWidth);
   padding: 30px;
-  margin: 0 auto; */
+  margin: 0 auto;  */
 `;
 
 export const MenuDrop = styled.div`
@@ -23,7 +23,7 @@ export const MenuDrop = styled.div`
   }
 
   .dropbtn {
-    background-color: darkgreen;
+    background-color: darkorange;
     color: white;
     padding: 16px;
     font-size: 16px;
