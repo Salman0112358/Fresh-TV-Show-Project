@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // importing API
-import { getShowsList } from "../../API";
+import { getShowSearchList, getAllShows } from "../../API";
 // import components
 import Header from "../Header/Header";
 import Grid from "../Grid/Grid";
@@ -31,7 +31,7 @@ const Home = (): JSX.Element => {
     episodeSearchTerm
   );
 
-  getShowsList("Friends")
+  getAllShows()
 
   useEffect(() => {
     const getEpisodes = async () => {
