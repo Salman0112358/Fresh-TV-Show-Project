@@ -19,11 +19,9 @@ export interface IEpisode {
   _links: { self: { href: string } };
 }
 
-export inteface IShow {
- 
-}
+// export inteface IShow {
 
-
+// }
 
 export interface ThumbnailProps {
   name: string;
@@ -31,7 +29,7 @@ export interface ThumbnailProps {
   number: number;
   image?: string;
   summary: string;
-  url : string
+  url: string;
 }
 
 export type EpisodeSearchProps = {

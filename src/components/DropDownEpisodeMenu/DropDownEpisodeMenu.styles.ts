@@ -64,6 +64,4 @@ export const MenuDrop = styled.div`
   .dropbtn:hover {
     background-color: #3e8e41;
   }
-
-
 `;

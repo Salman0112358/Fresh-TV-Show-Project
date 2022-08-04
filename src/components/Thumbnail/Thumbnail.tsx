@@ -19,7 +19,7 @@ const Thumbnail = ({
   number,
   image,
   summary,
-  url
+  url,
 }: ThumbnailProps): JSX.Element => {
   return (
     <>
@@ -28,7 +28,9 @@ const Thumbnail = ({
           S{padNumberToTwoDigits(season)}E{padNumberToTwoDigits(number)} -{" "}
           {name}
         </EpisodeDetails>
-        <a href={url} target="_blank" rel="noreferrer"><Image src={image} alt="episode-img"></Image></a>
+        <a href={url} target="_blank" rel="noreferrer">
+          <Image src={image} alt="episode-img"></Image>
+        </a>
         <EpisodeDescription>{removeHtmlTag(summary)}</EpisodeDescription>
       </Wrapper>
     </>

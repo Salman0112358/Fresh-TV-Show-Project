@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // importing API
-import { getShowSearchList, getAllShows } from "../../API";
+import { getAllShows } from "../../API";
 // import components
 import Header from "../Header/Header";
 import Grid from "../Grid/Grid";
@@ -31,7 +31,7 @@ const Home = (): JSX.Element => {
     episodeSearchTerm
   );
 
-  getAllShows()
+  getAllShows();
 
   useEffect(() => {
     const getEpisodes = async () => {
@@ -39,7 +39,7 @@ const Home = (): JSX.Element => {
 
       const jsonBody: IEpisode[] = await response.json();
       setCurrentShow(jsonBody);
-      console.log("fetching completed")
+      console.log("fetching completed");
     };
     getEpisodes();
   }, []);
@@ -52,12 +52,12 @@ const Home = (): JSX.Element => {
         setEpisodeSearchTerm={setEpisodeSearchTerm}
       />
       <DropDownEpisodeMenu>
-
-      {searchFilteredEpisodes.map((item: IEpisode) => (
-        <li onClick={() => setEpisodeSearchTerm(item.name)}
-        key={item.id}>S{padNumberToTwoDigits(item.season)}E{padNumberToTwoDigits(item.number)} - {item.name}</li>
-      ))}
-
+        {searchFilteredEpisodes.map((item: IEpisode) => (
+          <li onClick={() => setEpisodeSearchTerm(item.name)} key={item.id}>
+            S{padNumberToTwoDigits(item.season)}E
+            {padNumberToTwoDigits(item.number)} - {item.name}
+          </li>
+        ))}
       </DropDownEpisodeMenu>
       <Grid
         header={`Showing ${searchFilteredEpisodes.length}/${totalEpisodeCounter} Episodes`}
@@ -69,7 +69,7 @@ const Home = (): JSX.Element => {
             number={item.number}
             image={emptyImageChecker(item)}
             summary={item.summary}
-            url = {item.url}
+            url={item.url}
             key={item.id}
           />
         ))}

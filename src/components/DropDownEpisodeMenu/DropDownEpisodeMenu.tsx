@@ -12,21 +12,16 @@ export const DropDownEpisodeMenu = ({
   return (
     <Wrapper>
       <MenuDrop>
-      <div className="dropdown">
-        <button className="dropbtn">
-          ShowEpisodesList
-        </button>
-        <div className="dropdown-content">
-          <ul>
-            {children}
-          </ul>
+        <div className="dropdown">
+          <button className="dropbtn">ShowEpisodesList</button>
+          <div className="dropdown-content">
+            <ul>{children}</ul>
+          </div>
         </div>
-      </div>
       </MenuDrop>
     </Wrapper>
   );
 };
-
 
 /*
 import { IEpisode } from "../types";
