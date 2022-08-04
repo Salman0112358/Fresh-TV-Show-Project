@@ -1,22 +1,24 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-import { MenuDrop } from "./DropDownEpisodeMenu.styles";
+import { Wrapper, MenuDrop } from "./DropDownEpisodeMenu.styles";
 
 type DropDownMenuProps = {
-  children: any;
+  children: ReactNode;
 };
 
 export const DropDownEpisodeMenu = ({
   children,
 }: DropDownMenuProps): JSX.Element => {
   return (
-    <MenuDrop>
-      <div className="dropdown">
-        <button className="dropbtn">Show Episodes List</button>
-        <div className="dropdown-content">
-          <ul>{children}</ul>
+    <Wrapper>
+      <MenuDrop>
+        <div className="dropdown">
+          <button className="dropbtn">Show Episodes List</button>
+          <div className="dropdown-content">
+            <ul>{children}</ul>
+          </div>
         </div>
-      </div>
-    </MenuDrop>
+      </MenuDrop>
+    </Wrapper>
   );
 };

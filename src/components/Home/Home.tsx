@@ -16,6 +16,7 @@ import { IEpisode } from "../../types";
 //importing function
 import SearchFilterFunction from "../../utils/searchMatchingFunction";
 import { emptyImageChecker } from "../../utils/emptyImageChecker";
+import padNumberToTwoDigits from "../../utils/padNumberToTwoDigits";
 //////////////////////////
 
 const Home = (): JSX.Element => {
@@ -49,28 +50,14 @@ const Home = (): JSX.Element => {
         episodeSearchTerm={episodeSearchTerm}
         setEpisodeSearchTerm={setEpisodeSearchTerm}
       />
-      {/* <DropDownEpisodeMenu>
+      <DropDownEpisodeMenu>
         {searchFilteredEpisodes.map((item: IEpisode) => (
-            <a
-            key = {item.id}
-            href= {item.url}
-            target= "_blank"
-            onClick= {() => setEpisodeSearchTerm(item.name)}
-            rel = "noreferrer">
-            {item.name}
-            </a>
-          ))
-        }
-      </DropDownEpisodeMenu> */}
-      {/* {searchFilteredEpisodes.map((item : IEpisode) => (
-          <DropDownEpisodeMenu
-            name = {item.name}
-            season = {item.season}
-            number = {item.number}
-            key = {item.id}
-          />
-        ) )}
-     */}
+          <li key={item.id} onClick={() => setEpisodeSearchTerm(item.name)}>
+            S{padNumberToTwoDigits(item.season)}E
+            {padNumberToTwoDigits(item.number)} - {item.name}
+          </li>
+        ))}
+      </DropDownEpisodeMenu>
       <Grid
         header={`Showing ${searchFilteredEpisodes.length}/${totalEpisodeCounter} Episodes`}
       >

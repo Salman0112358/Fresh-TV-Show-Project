@@ -1,5 +1,15 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: flex-start;
+  max-width: var(--maxWidth);
+  padding: 30px;
+  margin: 0 auto;
+`;
+
 export const MenuDrop = styled.div`
   .dropdown {
     position: relative;
@@ -9,10 +19,11 @@ export const MenuDrop = styled.div`
   }
 
   .dropbtn {
-    background-color: #4caf50;
+    background-color: darkgreen;
     color: white;
     padding: 16px;
     font-size: 16px;
+    font-weight: 600;
     border: none;
     cursor: pointer;
     height: 55px;
@@ -26,13 +37,13 @@ export const MenuDrop = styled.div`
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 300px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
 
   /* Links inside the dropdown */
-  .dropdown-content a {
+  .dropdown-content li {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -40,7 +51,7 @@ export const MenuDrop = styled.div`
   }
 
   /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {
+  .dropdown-content li:hover {
     background-color: #f1f1f1;
   }
 

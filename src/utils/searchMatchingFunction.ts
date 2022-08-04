@@ -13,6 +13,7 @@ export default function SearchFilterFunction(
     } else if (item.name) {
       return item.name.toLowerCase().includes(episodeSearchTerm.toLowerCase());
     }
+    return "";
   });
 
   return searchFilteredEpisodes;

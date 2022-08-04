@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface IEpisode {
   id: number;
   url: string;
@@ -37,5 +39,5 @@ export type SearchTermProps = {
 
 export interface GridProps {
   header: string;
-  children: any;
+  children: ReactNode;
 }
