@@ -35,10 +35,11 @@ const Home = (): JSX.Element => {
 
   useEffect(() => {
     const getEpisodes = async () => {
-      const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
+      const response = await fetch("https://api.tvmaze.com/shows/83/episodes");
 
       const jsonBody: IEpisode[] = await response.json();
       setCurrentShow(jsonBody);
+      console.log("fetching completed")
     };
     getEpisodes();
   }, []);
@@ -50,6 +51,14 @@ const Home = (): JSX.Element => {
         episodeSearchTerm={episodeSearchTerm}
         setEpisodeSearchTerm={setEpisodeSearchTerm}
       />
+      <DropDownEpisodeMenu>
+
+      {searchFilteredEpisodes.map((item: IEpisode) => (
+        <li onClick={() => setEpisodeSearchTerm(item.name)}
+        key={item.id}>S{padNumberToTwoDigits(item.season)}E{padNumberToTwoDigits(item.number)} - {item.name}</li>
+      ))}
+
+      </DropDownEpisodeMenu>
       <Grid
         header={`Showing ${searchFilteredEpisodes.length}/${totalEpisodeCounter} Episodes`}
       >
