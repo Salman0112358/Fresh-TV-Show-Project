@@ -27,7 +27,8 @@ const ShowThumbnail = ({
 }: ShowProps): JSX.Element => {
   return (
     <Wrapper>
-      <ShowDetails>{name} - Average Rating :{rating.average}</ShowDetails>z
+      <ShowDetails>{name}</ShowDetails>
+      <ShowDetails><i>Genres: {genres.join(",")}</i></ShowDetails>
       <a href="#top">
         <Image
           src={image}

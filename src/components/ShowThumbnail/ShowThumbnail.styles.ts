@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 export const ShowDetails = styled.p`
   margin: 0 auto;
   text-align: center;
-  padding: 20px 0;
+  padding: 10px 0;
   color: white;
   font-weight: 600;
 `;
