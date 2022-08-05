@@ -30,7 +30,7 @@ export const Content = styled.div`
   }
 
   input {
-    font-size: var(--fontBig);
+    font-size: 1.7rem;
     position: absolute;
     left: 0px;
     margin: 8px 0;
@@ -39,7 +39,7 @@ export const Content = styled.div`
     width: 95%;
     background: transparent;
     height: 40px;
-    color: green;
+    color: orangered;
     font-weight: 600;
 
     :focus {

@@ -23,7 +23,7 @@ export const MenuDrop = styled.div`
   }
 
   .dropbtn {
-    background-color: darkorange;
+    background-color: darkred;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -71,7 +71,6 @@ export const MenuDrop = styled.div`
 
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropbtn:hover {
-    background-color: darkorange;
     opacity: 0.8;
   }
 `;

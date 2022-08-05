@@ -7,6 +7,7 @@ import Thumbnail from "../Thumbnail/Thumbnail";
 import SearchBar from "../SearchBar/SearchBar";
 import { DropDownEpisodeMenu } from "../DropDownEpisodeMenu/DropDownEpisodeMenu";
 import { DropDownShowMenu } from "../DropDownShowMenu/DropDownShowMenu";
+import ClearSearchButton from "../ClearSearchButton/ClearSearchButton";
 //import inteface
 import { IEpisode } from "../../types";
 import { IShow } from "../../types";
@@ -44,7 +45,7 @@ const Home = (): JSX.Element => {
   /////////////////////////////////////////////////////////////
   useEffect(() => {
     const getEpisodes = async () => {
-      const response = await fetch("https://api.tvmaze.com/shows/1/episodes");
+      const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
 
       const jsonBody: IEpisode[] = await response.json();
       setCurrentShow(jsonBody);
@@ -74,7 +75,6 @@ const Home = (): JSX.Element => {
           ))}
         </DropDownEpisodeMenu>
         <DropDownShowMenu>
-          {/* console.log(`https://api.tvmaze.com/shows/${item.id}/episodes`) */}
           {sortArrayAlphabetically(currentShowListing).map(
             (item: IShow | showNameProp) => (
               <a key={item.id} href="#top">
@@ -93,6 +93,16 @@ const Home = (): JSX.Element => {
             )
           )}
         </DropDownShowMenu>
+        <ClearSearchButton>
+          {
+            <button
+              className="dropbtn"
+              onClick={() => setEpisodeSearchTerm("")}
+            >
+              Clear Episode Search
+            </button>
+          }
+        </ClearSearchButton>
       </div>
       <Grid
         header={`Showing ${searchFilteredEpisodes.length}/${totalEpisodeCounter} Episodes `}
