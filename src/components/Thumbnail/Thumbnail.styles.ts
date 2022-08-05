@@ -24,10 +24,9 @@ export const EpisodeDescription = styled.p`
   font-weight: 600;
 
   .links {
-  text-decoration: none;
-  color: darkorange;
- }
-
+    text-decoration: none;
+    color: darkorange;
+  }
 `;
 
 export const Image = styled.img`

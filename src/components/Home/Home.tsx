@@ -44,18 +44,18 @@ const Home = (): JSX.Element => {
 
   useEffect(() => {
     const getshowListing = async () => {
-      const UrlArray = []
-      const combinedShowsArray : IShow[] = []
+      const UrlArray = [];
+      const combinedShowsArray: IShow[] = [];
 
-      for (let i=0; i<=1; i++){
-        UrlArray.push(`http://api.tvmaze.com/shows?page=${i}`)
+      for (let i = 0; i <= 1; i++) {
+        UrlArray.push(`http://api.tvmaze.com/shows?page=${i}`);
       }
       for (const page of UrlArray) {
-        const response = await fetch(page)
-        const jsonBody : IShow = await response.json()
-         combinedShowsArray.push(jsonBody)
+        const response = await fetch(page);
+        const jsonBody: IShow = await response.json();
+        combinedShowsArray.push(jsonBody);
       }
-      console.log(combinedShowsArray.flat(Infinity))
+      console.log(combinedShowsArray.flat(Infinity));
       SetCurrentShowListing(combinedShowsArray.flat(Infinity));
     };
     getshowListing();

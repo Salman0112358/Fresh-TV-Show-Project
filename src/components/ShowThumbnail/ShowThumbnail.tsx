@@ -48,7 +48,12 @@ const ShowThumbnail = ({
           }}
         ></Image>
       </a>
-      <ShowDescription>{removeHtmlTag(summary).substring(0,300)}...<a className="links" href={url} target ='_blank' rel='noreferrer'>(Read More)!</a></ShowDescription>
+      <ShowDescription>
+        {removeHtmlTag(summary).substring(0, 300)}...
+        <a className="links" href={url} target="_blank" rel="noreferrer">
+          (Read More)!
+        </a>
+      </ShowDescription>
     </Wrapper>
   );
 };
