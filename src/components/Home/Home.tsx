@@ -31,6 +31,7 @@ const Home = (): JSX.Element => {
   const [showSearchTerm, SetShowSearchTerm] = useState("");
   const [currentShowListing, setCurrentShowListing] = useState<IShow[]>([]);
   const [enableShowPage, setEnableShowPage] = useState<boolean>(true);
+  const [nameCurrentShow, setNameCurrentShow] = useState<string>("");
 
   const totalEpisodeCounter: number = currentShow.length;
   const totalShowCounter: number = currentShowListing.length;
@@ -146,7 +147,7 @@ const Home = (): JSX.Element => {
       <Grid
         header={
           !enableShowPage
-            ? `Showing ${searchFilteredEpisodes.length}/${totalEpisodeCounter} Episodes`
+            ? `Showing ${searchFilteredEpisodes.length}/${totalEpisodeCounter} Episodes for ${nameCurrentShow}`
             : `Showing ${searchFilteredShows.length}/${totalShowCounter} Shows`
         }
       >
@@ -169,6 +170,10 @@ const Home = (): JSX.Element => {
                 summary={item.summary}
                 rating={item.rating}
                 genres={item.genres}
+                disableShowPage={setEnableShowPage}
+                setCurrentShow={setCurrentShow}
+                setNameCurrentShow={setNameCurrentShow}
+                id={item.id}
                 url={item.url}
                 key={item.id}
               />

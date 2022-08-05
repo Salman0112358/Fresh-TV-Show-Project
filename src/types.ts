@@ -91,6 +91,10 @@ export interface ShowProps {
   image?: string;
   summary: string;
   url: string;
+  id: number;
+  disableShowPage: React.Dispatch<React.SetStateAction<boolean>>;
+  setCurrentShow: React.Dispatch<React.SetStateAction<IEpisode[]>>;
+  setNameCurrentShow: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export type EpisodeSearchProps = {

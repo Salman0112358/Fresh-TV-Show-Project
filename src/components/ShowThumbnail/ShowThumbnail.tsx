@@ -11,6 +11,8 @@ import { ShowProps } from "../../types";
 // function utility imports
 import removeHtmlTag from "../../utils/removeHtmlTag";
 
+import { IEpisode } from "../../types";
+
 const ShowThumbnail = ({
   name,
   summary,
@@ -18,12 +20,28 @@ const ShowThumbnail = ({
   image,
   url,
   genres,
+  id,
+  disableShowPage,
+  setCurrentShow,
+  setNameCurrentShow,
 }: ShowProps): JSX.Element => {
   return (
     <Wrapper>
-      <ShowDetails>{name}</ShowDetails>
-      <a href={url} target="_blank" rel="noreferrer">
-        <Image src={image} alt="show-img"></Image>
+      <ShowDetails>{name}</ShowDetails>z
+      <a href="#top">
+        <Image
+          src={image}
+          alt="show-img"
+          onClick={async () => {
+            const response = await fetch(
+              `https://api.tvmaze.com/shows/${id}/episodes`
+            );
+            const jsonBody: IEpisode[] = await response.json();
+            setCurrentShow(jsonBody);
+            disableShowPage(false);
+            setNameCurrentShow(name);
+          }}
+        ></Image>
       </a>
       <ShowDescription>{removeHtmlTag(summary)}</ShowDescription>
     </Wrapper>
