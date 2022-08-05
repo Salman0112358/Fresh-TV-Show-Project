@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  max-width: 720px;
+  max-width: 1000px;
   background: black;
   border: solid black;
   border-radius: 25px;
@@ -12,6 +12,7 @@ export const ShowDetails = styled.p`
   text-align: center;
   padding: 20px 0;
   color: white;
+  font-weight: 600;
 `;
 
 export const ShowDescription = styled.p`
@@ -20,11 +21,12 @@ export const ShowDescription = styled.p`
   padding: 20px 0;
   min-height: 200px;
   color: white;
+  font-weight: 600;
 `;
 
 export const Image = styled.img`
   width: 100%;
-  max-width: 720px;
+  max-width: 1000px;
   transition: all 0.3s;
   object-fit: cover;
   border-radius: 25px;
