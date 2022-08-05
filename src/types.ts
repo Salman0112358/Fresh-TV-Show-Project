@@ -82,9 +82,25 @@ export interface ThumbnailProps {
   url: string;
 }
 
+export interface ShowProps {
+  name: string;
+  rating: {
+    average: number;
+  };
+  genres: string[];
+  image?: string;
+  summary: string;
+  url: string;
+}
+
 export type EpisodeSearchProps = {
   episodeSearchTerm: string;
   episodesArray: IEpisode[];
+};
+
+export type ShowSearchTermProps = {
+  showSearchTerm: string;
+  setShowSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export type SearchTermProps = {
