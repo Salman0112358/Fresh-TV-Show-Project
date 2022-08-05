@@ -47,12 +47,12 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .parent-buttons { 
-        overflow:auto; // stops buttons wrapping
+        /* overflow:auto; // stops buttons wrapping */
         white-space:nowrap; // stops buttons wrapping
         margin: 1rem;
-        padding: 2rem 2rem;
+        padding: 1rem;
         text-align: center;
-        margin-left: -12%
+        /* margin-left: -12% */
         ;
     }
 

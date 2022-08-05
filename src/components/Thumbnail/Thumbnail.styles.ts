@@ -22,6 +22,12 @@ export const EpisodeDescription = styled.p`
   min-height: 200px;
   color: white;
   font-weight: 600;
+
+  .links {
+  text-decoration: none;
+  color: darkorange;
+ }
+
 `;
 
 export const Image = styled.img`

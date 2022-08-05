@@ -1,4 +1,4 @@
-const UrlArray = []
+      const UrlArray = []
       const combinedShowsArray : IShow[] = []
 
       for (let i=1; i<=1; i++){
@@ -10,6 +10,6 @@ const UrlArray = []
          combinedShowsArray.push(jsonBody)
       }
       console.log(combinedShowsArray.flat(Infinity))
-      setCurrentShowListing(combinedShowsArray.flat(Infinity));
+      SetCurrentShowListing(combinedShowsArray.flat(Infinity));
     };
     getshowListing();

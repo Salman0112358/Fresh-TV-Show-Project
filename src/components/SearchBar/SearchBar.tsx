@@ -8,7 +8,7 @@ import SearchImage from "../../images/search.png";
 
 function SearchBar({
   episodeSearchTerm,
-  setEpisodeSearchTerm,
+  SetEpisodeSearchTerm,
 }: SearchTermProps): JSX.Element {
   return (
     <>
@@ -19,7 +19,7 @@ function SearchBar({
             type="text"
             placeholder="Search Episodes"
             onChange={(event) =>
-              setEpisodeSearchTerm(event.currentTarget.value)
+              SetEpisodeSearchTerm(event.currentTarget.value)
             }
             value={episodeSearchTerm}
           ></input>

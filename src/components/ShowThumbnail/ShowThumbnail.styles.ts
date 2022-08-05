@@ -17,11 +17,17 @@ export const ShowDetails = styled.p`
 
 export const ShowDescription = styled.p`
   margin: 0 auto;
-  text-align: center;
+  text-align: justify;
   padding: 20px 0;
   min-height: 200px;
   color: white;
   font-weight: 600;
+  
+ .links {
+  text-decoration: none;
+  color: darkorange;
+ }
+  
 `;
 
 export const Image = styled.img`

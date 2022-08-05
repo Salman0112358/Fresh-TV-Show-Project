@@ -18,8 +18,8 @@ export const MenuDrop = styled.div`
   .dropdown {
     position: relative;
     display: inline-block;
-    left: -50%;
-    top: -20px;
+    /* left: -50%; */
+    top: -2rem;
   }
 
   .dropbtn {

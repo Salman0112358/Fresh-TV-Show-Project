@@ -31,7 +31,7 @@ const Thumbnail = ({
         <a href={url} target="_blank" rel="noreferrer">
           <Image src={image} alt="episode-img"></Image>
         </a>
-        <EpisodeDescription>{removeHtmlTag(summary)}</EpisodeDescription>
+        <EpisodeDescription>{removeHtmlTag(summary).substring(0,300)}...<a className="links" href={url} target ='_blank' rel='noreferrer'>(Read More)!</a></EpisodeDescription>
       </Wrapper>
     </>
   );

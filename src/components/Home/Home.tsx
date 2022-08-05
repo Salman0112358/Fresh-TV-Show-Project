@@ -9,12 +9,9 @@ import SearchBar from "../SearchBar/SearchBar";
 import { DropDownEpisodeMenu } from "../DropDownEpisodeMenu/DropDownEpisodeMenu";
 import { DropDownShowMenu } from "../DropDownShowMenu/DropDownShowMenu";
 import ClearSearchButton from "../ClearSearchButton/ClearSearchButton";
-
-//import inteface
-import { IEpisode } from "../../types";
-import { IShow } from "../../types";
-import { showNameProp } from "../../types";
-//import utility function
+//import intefaces & types
+import { IEpisode, IShow, showNameProp } from "../../types";
+//import utility functions
 import SearchFilterFunction from "../../utils/searchMatchingFunction";
 import showSearchFilterFunction from "../../utils/searchShowMatchingFunction";
 import { emptyImageChecker } from "../../utils/emptyImageChecker";
@@ -22,16 +19,15 @@ import padNumberToTwoDigits from "../../utils/padNumberToTwoDigits";
 import sortArrayAlphabetically from "../../utils/sortArrayAlphabetically";
 import ReturnToShowPageButton from "../ReturnToShowPageButton/ReturnToShowPageButton";
 import ShowSearchBar from "../ShowsSearchBar/ShowsSearchBar";
-//////////////////////////
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const Home = (): JSX.Element => {
   // react managed states
   const [currentShow, setCurrentShow] = useState<IEpisode[]>([]);
-  const [episodeSearchTerm, setEpisodeSearchTerm] = useState("");
+  const [episodeSearchTerm, SetEpisodeSearchTerm] = useState("");
   const [showSearchTerm, SetShowSearchTerm] = useState("");
-  const [currentShowListing, setCurrentShowListing] = useState<IShow[]>([]);
-  const [enableShowPage, setEnableShowPage] = useState<boolean>(true);
-  const [nameCurrentShow, setNameCurrentShow] = useState<string>("");
+  const [currentShowListing, SetCurrentShowListing] = useState<IShow[]>([]);
+  const [enableShowPage, SetEnableShowPage] = useState<boolean>(true);
+  const [nameCurrentShow, SetNameCurrentShow] = useState<string>("");
 
   const totalEpisodeCounter: number = currentShow.length;
   const totalShowCounter: number = currentShowListing.length;
@@ -48,16 +44,23 @@ const Home = (): JSX.Element => {
 
   useEffect(() => {
     const getshowListing = async () => {
-      const response = await fetch("https://api.tvmaze.com/shows");
-      //http://api.tvmaze.com/shows?page=1
+      const UrlArray = []
+      const combinedShowsArray : IShow[] = []
 
-      const jsonBody: IShow[] = await response.json();
-      setCurrentShowListing(jsonBody);
-      //console.log("fetching completed");
+      for (let i=0; i<=1; i++){
+        UrlArray.push(`http://api.tvmaze.com/shows?page=${i}`)
+      }
+      for (const page of UrlArray) {
+        const response = await fetch(page)
+        const jsonBody : IShow = await response.json()
+         combinedShowsArray.push(jsonBody)
+      }
+      console.log(combinedShowsArray.flat(Infinity))
+      SetCurrentShowListing(combinedShowsArray.flat(Infinity));
     };
     getshowListing();
   }, []);
-  /////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   useEffect(() => {
     const getEpisodes = async () => {
       const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
@@ -67,9 +70,7 @@ const Home = (): JSX.Element => {
     };
     getEpisodes();
   }, [currentShowListing]);
-  ///////////////////////////////////////////////
-
-  //console.log(showEpisodesForSelectedShow(84))
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <>
@@ -77,7 +78,7 @@ const Home = (): JSX.Element => {
       {!enableShowPage ? (
         <SearchBar
           episodeSearchTerm={episodeSearchTerm}
-          setEpisodeSearchTerm={setEpisodeSearchTerm}
+          SetEpisodeSearchTerm={SetEpisodeSearchTerm}
         />
       ) : (
         <ShowSearchBar
@@ -91,7 +92,7 @@ const Home = (): JSX.Element => {
           <DropDownEpisodeMenu>
             {searchFilteredEpisodes.map((item: IEpisode) => (
               <a key={item.id} href="#top">
-                <li onClick={() => setEpisodeSearchTerm(item.name)}>
+                <li onClick={() => SetEpisodeSearchTerm(item.name)}>
                   S{padNumberToTwoDigits(item.season)}E
                   {padNumberToTwoDigits(item.number)} - {item.name}
                 </li>
@@ -111,7 +112,9 @@ const Home = (): JSX.Element => {
                       `https://api.tvmaze.com/shows/${item.id}/episodes`
                     );
                     const jsonBody: IEpisode[] = await response.json();
-                    setEnableShowPage(false);
+                    SetShowSearchTerm("");
+                    SetEpisodeSearchTerm("");
+                    SetEnableShowPage(false);
                     setCurrentShow(jsonBody);
                   }}
                 >
@@ -125,7 +128,7 @@ const Home = (): JSX.Element => {
           {!enableShowPage ? (
             <button
               className="dropbtn"
-              onClick={() => setEpisodeSearchTerm("")}
+              onClick={() => SetEpisodeSearchTerm("")}
             >
               Clear Episode Search
             </button>
@@ -135,7 +138,13 @@ const Home = (): JSX.Element => {
         </ClearSearchButton>
         <ReturnToShowPageButton>
           {!enableShowPage ? (
-            <button className="dropbtn" onClick={() => setEnableShowPage(true)}>
+            <button
+              className="dropbtn"
+              onClick={() => {
+                SetEnableShowPage(true);
+                SetShowSearchTerm("");
+              }}
+            >
               Return Back To Shows Page
             </button>
           ) : (
@@ -170,9 +179,10 @@ const Home = (): JSX.Element => {
                 summary={item.summary}
                 rating={item.rating}
                 genres={item.genres}
-                disableShowPage={setEnableShowPage}
+                disableShowPage={SetEnableShowPage}
                 setCurrentShow={setCurrentShow}
-                setNameCurrentShow={setNameCurrentShow}
+                SetNameCurrentShow={SetNameCurrentShow}
+                SetEpisodeSearchTerm={SetEpisodeSearchTerm}
                 id={item.id}
                 url={item.url}
                 key={item.id}
@@ -184,8 +194,3 @@ const Home = (): JSX.Element => {
 };
 
 export default Home;
-
-// const [currentShow, setCurrentShow] = useState<IEpisode[]>([]);
-// const [episodeSearchTerm, setEpisodeSearchTerm] = useState("");
-// const [currentShowListing, setCurrentShowListing] = useState<IShow[]>([]);
-// const [hasShowBeenSelected, setHasShowBeenSelected] = useState<boolean>(false)

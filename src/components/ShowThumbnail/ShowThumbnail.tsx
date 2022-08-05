@@ -23,28 +23,32 @@ const ShowThumbnail = ({
   id,
   disableShowPage,
   setCurrentShow,
-  setNameCurrentShow,
+  SetNameCurrentShow,
+  SetEpisodeSearchTerm,
 }: ShowProps): JSX.Element => {
   return (
     <Wrapper>
       <ShowDetails>{name}</ShowDetails>
-      <ShowDetails><i>Genres: {genres.join(",")}</i></ShowDetails>
+      <ShowDetails>
+        <i>Genres: {genres.join(",")}</i>
+      </ShowDetails>
       <a href="#top">
         <Image
           src={image}
           alt="show-img"
           onClick={async () => {
+            SetEpisodeSearchTerm("");
             const response = await fetch(
               `https://api.tvmaze.com/shows/${id}/episodes`
             );
             const jsonBody: IEpisode[] = await response.json();
             setCurrentShow(jsonBody);
             disableShowPage(false);
-            setNameCurrentShow(name);
+            SetNameCurrentShow(name);
           }}
         ></Image>
       </a>
-      <ShowDescription>{removeHtmlTag(summary)}</ShowDescription>
+      <ShowDescription>{removeHtmlTag(summary).substring(0,300)}...<a className="links" href={url} target ='_blank' rel='noreferrer'>(Read More)!</a></ShowDescription>
     </Wrapper>
   );
 };

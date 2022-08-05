@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 export interface IEpisode {
   id: number;
@@ -15,6 +15,22 @@ export interface IEpisode {
     medium: string;
     original: string;
   };
+  summary: string;
+  _links: { self: { href: string } };
+}
+
+export interface IEpisodeNull {
+  id: number;
+  url: string;
+  name: string;
+  season: number;
+  number: number;
+  type: string;
+  airdate: string;
+  airtime: string;
+  airstamp: string;
+  runtime: number;
+  image: null;
   summary: string;
   _links: { self: { href: string } };
 }
@@ -94,7 +110,8 @@ export interface ShowProps {
   id: number;
   disableShowPage: React.Dispatch<React.SetStateAction<boolean>>;
   setCurrentShow: React.Dispatch<React.SetStateAction<IEpisode[]>>;
-  setNameCurrentShow: React.Dispatch<React.SetStateAction<string>>;
+  SetNameCurrentShow: React.Dispatch<React.SetStateAction<string>>;
+  SetEpisodeSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export type EpisodeSearchProps = {
@@ -109,7 +126,7 @@ export type ShowSearchTermProps = {
 
 export type SearchTermProps = {
   episodeSearchTerm: string;
-  setEpisodeSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  SetEpisodeSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export interface GridProps {
