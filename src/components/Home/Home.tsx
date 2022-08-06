@@ -22,12 +22,12 @@ import ShowSearchBar from "../ShowsSearchBar/ShowsSearchBar";
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const Home = (): JSX.Element => {
   // react managed states
-  const [currentShow, setCurrentShow] = useState<IEpisode[]>([]);
-  const [episodeSearchTerm, SetEpisodeSearchTerm] = useState("");
-  const [showSearchTerm, SetShowSearchTerm] = useState("");
-  const [currentShowListing, SetCurrentShowListing] = useState<IShow[]>([]);
-  const [enableShowPage, SetEnableShowPage] = useState<boolean>(true);
-  const [nameCurrentShow, SetNameCurrentShow] = useState<string>("");
+  const [currentShow, setCurrentShow] = useState<IEpisode[]>([]); // dispalys current list of episodes for a given show
+  const [episodeSearchTerm, SetEpisodeSearchTerm] = useState(""); // search filter term for episodes only 
+  const [showSearchTerm, SetShowSearchTerm] = useState(""); // search filter term for shows only
+  const [currentShowListing, SetCurrentShowListing] = useState<IShow[]>([]);  // displays list of shows
+  const [enableShowPage, SetEnableShowPage] = useState<boolean>(true); // Boolean check to see if we are on the Show page or the Episode Page
+  const [nameCurrentShow, SetNameCurrentShow] = useState<string>(""); // Tracker for the name of the show we are currently on
 
   const totalEpisodeCounter: number = currentShow.length;
   const totalShowCounter: number = currentShowListing.length;
