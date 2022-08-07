@@ -13,9 +13,6 @@ import { ThumbnailProps } from "../../types";
 import padNumberToTwoDigits from "../../utils/padNumberToTwoDigits";
 import removeHtmlTag from "../../utils/removeHtmlTag";
 
-
-
-
 const Thumbnail = ({
   name,
   season,
@@ -23,7 +20,7 @@ const Thumbnail = ({
   image,
   summary,
   url,
-  episodeSearchTerm
+  episodeSearchTerm,
 }: ThumbnailProps): JSX.Element => {
   return (
     <>

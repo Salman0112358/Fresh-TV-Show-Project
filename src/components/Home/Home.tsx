@@ -19,7 +19,7 @@ import showSearchFilterFunction from "../../utils/searchShowMatchingFunction";
 import { emptyImageChecker } from "../../utils/emptyImageChecker";
 import padNumberToTwoDigits from "../../utils/padNumberToTwoDigits";
 import sortArrayAlphabetically from "../../utils/sortArrayAlphabetically";
-import changeInnerHtmlColour from "../../utils/changeInnerHtmlColour";
+//import changeInnerHtmlColour from "../../utils/changeInnerHtmlColour";
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const Home = (): JSX.Element => {
   // react managed states
@@ -42,9 +42,6 @@ const Home = (): JSX.Element => {
     currentShowListing,
     showSearchTerm
   );
-
-
-
 
   useEffect(() => {
     const getshowListing = async () => {
@@ -158,8 +155,7 @@ const Home = (): JSX.Element => {
         }
       >
         {!enableShowPage
-          ? 
-          searchFilteredEpisodes.map((item: IEpisode) => (
+          ? searchFilteredEpisodes.map((item: IEpisode) => (
               <Thumbnail
                 name={item.name}
                 season={item.season}

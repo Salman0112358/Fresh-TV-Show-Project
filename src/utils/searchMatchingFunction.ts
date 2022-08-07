@@ -1,6 +1,5 @@
 import { IEpisode } from "../types";
 
-
 export default function SearchFilterFunction(
   currentShow: IEpisode[],
   episodeSearchTerm: string
