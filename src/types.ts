@@ -96,6 +96,7 @@ export interface ThumbnailProps {
   image?: string;
   summary: string;
   url: string;
+  episodeSearchTerm: string;
 }
 
 export interface ShowProps {

@@ -9,6 +9,8 @@ import SearchBar from "../SearchBar/SearchBar";
 import { DropDownEpisodeMenu } from "../DropDownEpisodeMenu/DropDownEpisodeMenu";
 import { DropDownShowMenu } from "../DropDownShowMenu/DropDownShowMenu";
 import ClearSearchButton from "../ClearSearchButton/ClearSearchButton";
+import ReturnToShowPageButton from "../ReturnToShowPageButton/ReturnToShowPageButton";
+import ShowSearchBar from "../ShowsSearchBar/ShowsSearchBar";
 //import intefaces & types
 import { IEpisode, IShow, showNameProp } from "../../types";
 //import utility functions
@@ -17,8 +19,7 @@ import showSearchFilterFunction from "../../utils/searchShowMatchingFunction";
 import { emptyImageChecker } from "../../utils/emptyImageChecker";
 import padNumberToTwoDigits from "../../utils/padNumberToTwoDigits";
 import sortArrayAlphabetically from "../../utils/sortArrayAlphabetically";
-import ReturnToShowPageButton from "../ReturnToShowPageButton/ReturnToShowPageButton";
-import ShowSearchBar from "../ShowsSearchBar/ShowsSearchBar";
+import changeInnerHtmlColour from "../../utils/changeInnerHtmlColour";
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const Home = (): JSX.Element => {
   // react managed states
@@ -41,6 +42,9 @@ const Home = (): JSX.Element => {
     currentShowListing,
     showSearchTerm
   );
+
+
+
 
   useEffect(() => {
     const getshowListing = async () => {
@@ -154,7 +158,8 @@ const Home = (): JSX.Element => {
         }
       >
         {!enableShowPage
-          ? searchFilteredEpisodes.map((item: IEpisode) => (
+          ? 
+          searchFilteredEpisodes.map((item: IEpisode) => (
               <Thumbnail
                 name={item.name}
                 season={item.season}
@@ -162,6 +167,7 @@ const Home = (): JSX.Element => {
                 image={emptyImageChecker(item)}
                 summary={item.summary}
                 url={item.url}
+                episodeSearchTerm={episodeSearchTerm}
                 key={item.id}
               />
             ))

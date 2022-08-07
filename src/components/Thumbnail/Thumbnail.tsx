@@ -13,6 +13,9 @@ import { ThumbnailProps } from "../../types";
 import padNumberToTwoDigits from "../../utils/padNumberToTwoDigits";
 import removeHtmlTag from "../../utils/removeHtmlTag";
 
+
+
+
 const Thumbnail = ({
   name,
   season,
@@ -20,18 +23,19 @@ const Thumbnail = ({
   image,
   summary,
   url,
+  episodeSearchTerm
 }: ThumbnailProps): JSX.Element => {
   return (
     <>
       <Wrapper>
-        <EpisodeDetails>
+        <EpisodeDetails className="episode-thumbnail-text">
           S{padNumberToTwoDigits(season)}E{padNumberToTwoDigits(number)} -{" "}
           {name}
         </EpisodeDetails>
         <a href={url} target="_blank" rel="noreferrer">
           <Image src={image} alt="episode-img"></Image>
         </a>
-        <EpisodeDescription>
+        <EpisodeDescription className="episode-thumbnail-text">
           {removeHtmlTag(summary).substring(0, 300)}...
           <a className="links" href={url} target="_blank" rel="noreferrer">
             (Read More)!
