@@ -57,7 +57,7 @@ const Home = (): JSX.Element => {
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   useEffect(() => {
     const getEpisodes = async () => {
-      const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
+      const response = await fetch("https://api.tvmaze.com/shows/82/episodes"); // default show to load
 
       const jsonBody: IEpisode[] = await response.json();
       setCurrentShow(jsonBody);
